@@ -1,1 +1,1 @@
-# Raccoon
+# Rally Game engine
