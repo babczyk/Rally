@@ -5,6 +5,8 @@ extern Rally::Application* Rally::CreateApplication();
 
 int main(int argc, char** argv)
 {
+	Rally::Log::Init();
+
 	auto app = Rally::CreateApplication();
 	app->Run();
 	delete app;

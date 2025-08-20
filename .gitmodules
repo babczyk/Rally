@@ -1,0 +1,3 @@
+[submodule "Rally/vendor/spdlog"]
+	path = Rally/vendor/spdlog
+	url = https://github.com/gabime/spdlog
