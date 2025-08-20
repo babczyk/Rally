@@ -1,1 +1,4 @@
+#directories
 .vs/
+bin/
+bin-int/
