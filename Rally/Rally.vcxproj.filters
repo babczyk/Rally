@@ -4,6 +4,9 @@
     <Filter Include="Rally">
       <UniqueIdentifier>{09E4010E-75F8-29BF-3E7A-CD1EAA4D26F0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Rally\Events">
+      <UniqueIdentifier>{CD8B3FDE-B9EE-CE82-6274-07394EB69A05}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Rally.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\Rally\EntryPoint.h">
       <Filter>Rally</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rally\Events\ApplicationEvent.h">
+      <Filter>Rally\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rally\Events\Event.h">
+      <Filter>Rally\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rally\Events\KeyEvent.h">
+      <Filter>Rally\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rally\Events\MouseEvent.h">
+      <Filter>Rally\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Rally\Log.h">
       <Filter>Rally</Filter>

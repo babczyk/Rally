@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Core.h"
+#include "Rally/Events/Event.h"
 
 namespace Rally {
 	class RALLY_API Application

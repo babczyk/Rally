@@ -28,7 +28,8 @@ project "Rally"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"Rally/src"
 	}
 
 	filter "system:windows"
