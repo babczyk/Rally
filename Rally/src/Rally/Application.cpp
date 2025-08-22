@@ -1,3 +1,4 @@
+#include "rlpch.h"
 #include "Application.h"
 
 #include "Rally/Events/ApplicationEvent.h"
@@ -16,7 +17,7 @@ namespace Rally
 	void Application::Run()
 	{
 		WindowResizeEvent e(1280, 720);
-		RL_TRACE(e);
+		RL_TRACE(e.ToString());
 		while (true);
 	}
 

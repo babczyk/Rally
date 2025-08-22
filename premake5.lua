@@ -20,6 +20,9 @@ project "Rally"
 
 	buildoptions { "/utf-8" }
 
+	pchheader "rlpch.h"
+	pchsource "Rally/src/rlpch.cpp"
+
 	files 
 	{
 		"%{prj.name}/src/**.h",
