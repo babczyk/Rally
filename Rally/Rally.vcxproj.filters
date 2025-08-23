@@ -60,4 +60,9 @@
     </ClCompile>
     <ClCompile Include="src\rlpch.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Rally.sln">
+      <Filter>Rally</Filter>
+    </None>
+  </ItemGroup>
 </Project>

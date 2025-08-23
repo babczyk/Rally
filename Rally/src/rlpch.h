@@ -7,7 +7,7 @@
 	#endif
 #endif
 
-#include <Rally.h>
+#include "Rally/Log.h"
 
 #include <iostream>
 #include <memory>
