@@ -10,6 +10,12 @@ workspace "Rally"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+--Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Rally/vendor/GLFW/include"
+
+include "Rally/vendor/GLFW"
+
 project "Rally"
 	location "Rally"
 	kind "SharedLib"
@@ -32,7 +38,15 @@ project "Rally"
 	includedirs
 	{
 		"%{prj.name}/vendor/spdlog/include",
-		"Rally/src"
+		"Rally/src",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib",
+		"dwmapi.lib"
 	}
 
 	filter "system:windows"
@@ -111,7 +125,3 @@ project "Sandbox"
 	filter "configurations:Dist"
 		defines "RL_DIST"
 		optimize "On"
-
-
-
-	

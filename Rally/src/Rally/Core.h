@@ -11,4 +11,12 @@
 
 #endif 
 
+#ifdef RL_ENABLE_ASSERTS
+	#define RL_ASSERT(x, ...) { if(!(x) { RL_ERROR("Assertion Faild: {0}", __VA_ARGS__); __debugbreak(); } }
+	#define RL_CORE_ASSERT(x, ...) { if(!(x) { RL_ERROR("Assertion Faild: {0}", __VA_ARGS__); __debugbreak(); } }
+#else
+	#define RL_ASSERT(x, ...)
+	#define RL_CORE_ASSERT(x, ...)
+#endif
+
 #define BIT(x) (1 << x)
