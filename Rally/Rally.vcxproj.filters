@@ -40,6 +40,12 @@
     <ClInclude Include="src\Rally\Events\MouseEvent.h">
       <Filter>Rally\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Rally\Layer.h">
+      <Filter>Rally</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rally\LayerStack.h">
+      <Filter>Rally</Filter>
+    </ClInclude>
     <ClInclude Include="src\Rally\Log.h">
       <Filter>Rally</Filter>
     </ClInclude>
@@ -55,14 +61,15 @@
     <ClCompile Include="src\Rally\Application.cpp">
       <Filter>Rally</Filter>
     </ClCompile>
+    <ClCompile Include="src\Rally\Layer.cpp">
+      <Filter>Rally</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rally\LayerStack.cpp">
+      <Filter>Rally</Filter>
+    </ClCompile>
     <ClCompile Include="src\Rally\Log.cpp">
       <Filter>Rally</Filter>
     </ClCompile>
     <ClCompile Include="src\rlpch.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\Rally.sln">
-      <Filter>Rally</Filter>
-    </None>
   </ItemGroup>
 </Project>

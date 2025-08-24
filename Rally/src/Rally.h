@@ -10,6 +10,7 @@
 // is defined in the client, not the engine.
 
 #include "Rally/Application.h"
+#include "Rally/Layer.h"
 #include "Rally/Log.h"
 
 // ---Entry Point----------------------

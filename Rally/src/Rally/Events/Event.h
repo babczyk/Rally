@@ -44,6 +44,9 @@ namespace Rally {
 		friend class EventDispatcher;
 	public:
 		virtual EventType GetEventType() const = 0;
+
+		bool m_Handled = false;
+
 		virtual const char* GetName() const = 0;
 		virtual int GetCategoryFlags() const = 0;
 		virtual std::string ToString() const { return GetName(); };
@@ -52,8 +55,7 @@ namespace Rally {
 		{
 			return GetCategoryFlags() & category;
 		}
-	protected:
-		bool m_Handled = false;
+
 	};
 
 	class EventDispatcher
