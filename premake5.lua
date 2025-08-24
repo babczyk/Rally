@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 --Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Rally/vendor/GLFW/include"
+IncludeDir["Glad"] = "Rally/vendor/Glad/include"
 
 include "Rally/vendor/GLFW"
+include "Rally/vendor/Glad"
 
 project "Rally"
 	location "Rally"
@@ -39,14 +41,15 @@ project "Rally"
 	{
 		"%{prj.name}/vendor/spdlog/include",
 		"Rally/src",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib",
-		"dwmapi.lib"
 	}
 
 	filter "system:windows"
@@ -57,7 +60,8 @@ project "Rally"
 		defines
 		{
 			"RL_PLATFORM_WINDOWS",
-			"RL_BUILD_DLL"
+			"RL_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
