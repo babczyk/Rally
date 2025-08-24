@@ -13,5 +13,7 @@
 #include "Rally/Layer.h"
 #include "Rally/Log.h"
 
+#include "Rally/ImGui/ImGuiLayer.h"
+
 // ---Entry Point----------------------
 #include "Rally/EntryPoint.h"

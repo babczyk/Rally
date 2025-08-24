@@ -4,3 +4,6 @@
 [submodule "Rally/vendor/spdlog"]
 	path = Rally/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "Rally/vendor/imgui"]
+	path = Rally/vendor/imgui
+	url = https://github.com/babczyk/imgui.git
