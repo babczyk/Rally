@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Rally/vendor/GLFW/include"
 IncludeDir["Glad"] = "Rally/vendor/Glad/include"
 IncludeDir["ImGui"] = "Rally/vendor/imgui"
+IncludeDir["glm"] = "Rally/vendor/glm"
 
 include "Rally/vendor/GLFW"
 include "Rally/vendor/Glad"
@@ -37,7 +38,9 @@ project "Rally"
 	files 
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -46,7 +49,8 @@ project "Rally"
 		"Rally/src",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -108,7 +112,9 @@ project "Sandbox"
 	includedirs
 	{
 		"Rally/vendor/spdlog/include",
-		"Rally/src"
+		"Rally/src",
+		"%{IncludeDir.glm}"
+
 	}
 
 	links

@@ -7,3 +7,6 @@
 [submodule "Rally/vendor/imgui"]
 	path = Rally/vendor/imgui
 	url = https://github.com/babczyk/imgui.git
+[submodule "Rally/vendor/glm"]
+	path = Rally/vendor/glm
+	url = https://github.com/g-truc/glm.git
