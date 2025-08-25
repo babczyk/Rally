@@ -13,13 +13,18 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 --Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Rally/vendor/GLFW/include"
+IncludeDir["Glad"] = "Rally/vendor/Glad/include"
+IncludeDir["ImGui"] = "Rally/vendor/imgui"
 
 include "Rally/vendor/GLFW"
+include "Rally/vendor/Glad"
+include "Rally/vendor/imgui"
 
 project "Rally"
 	location "Rally"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -39,25 +44,28 @@ project "Rally"
 	{
 		"%{prj.name}/vendor/spdlog/include",
 		"Rally/src",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib",
-		"dwmapi.lib"
+		"ImGui"
 	}
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
 		{
 			"RL_PLATFORM_WINDOWS",
-			"RL_BUILD_DLL"
+			"RL_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -67,20 +75,24 @@ project "Rally"
 
 	filter "configurations:Debug"
 		defines "RL_DEBUG"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "RL_RELEASE"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "RL_DIST"
+		runtime "Release"
 		optimize "On"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -106,7 +118,6 @@ project "Sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -116,12 +127,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "RL_DEBUG"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "RL_RELEASE"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "RL_DIST"
+		runtime "Release"
 		optimize "On"

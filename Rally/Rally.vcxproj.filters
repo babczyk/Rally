@@ -4,6 +4,9 @@
     <Filter Include="Platforms">
       <UniqueIdentifier>{DDACA145-4917-56BC-9255-0762FEFE3311}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platforms\OpenGL">
+      <UniqueIdentifier>{719BB998-5D94-D8EA-86C6-BD6F721EB8F6}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platforms\Windows">
       <UniqueIdentifier>{17E40808-83FA-069E-CC71-92BF38C7D725}</UniqueIdentifier>
     </Filter>
@@ -13,8 +16,14 @@
     <Filter Include="Rally\Events">
       <UniqueIdentifier>{CD8B3FDE-B9EE-CE82-6274-07394EB69A05}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Rally\ImGui">
+      <UniqueIdentifier>{F37BB1D0-5F31-2AC6-E825-249D54DA20CA}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platforms\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Platforms\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platforms\Windows\WindowsWindow.h">
       <Filter>Platforms\Windows</Filter>
     </ClInclude>
@@ -40,6 +49,15 @@
     <ClInclude Include="src\Rally\Events\MouseEvent.h">
       <Filter>Rally\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Rally\ImGui\ImGuiLayer.h">
+      <Filter>Rally\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rally\Layer.h">
+      <Filter>Rally</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rally\LayerStack.h">
+      <Filter>Rally</Filter>
+    </ClInclude>
     <ClInclude Include="src\Rally\Log.h">
       <Filter>Rally</Filter>
     </ClInclude>
@@ -47,22 +65,35 @@
       <Filter>Rally</Filter>
     </ClInclude>
     <ClInclude Include="src\rlpch.h" />
+    <ClInclude Include="src\Rally\Input.h" />
+    <ClInclude Include="src\Platforms\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Rally\KeyCodes.h" />
+    <ClInclude Include="src\Rally\MouseButtonCodes.h" />
+    <ClInclude Include="src\Rally\ModsCodes.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platforms\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Platforms\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platforms\Windows\WindowsWindow.cpp">
       <Filter>Platforms\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Rally\Application.cpp">
       <Filter>Rally</Filter>
     </ClCompile>
+    <ClCompile Include="src\Rally\ImGui\ImGuiLayer.cpp">
+      <Filter>Rally\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rally\Layer.cpp">
+      <Filter>Rally</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rally\LayerStack.cpp">
+      <Filter>Rally</Filter>
+    </ClCompile>
     <ClCompile Include="src\Rally\Log.cpp">
       <Filter>Rally</Filter>
     </ClCompile>
     <ClCompile Include="src\rlpch.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\Rally.sln">
-      <Filter>Rally</Filter>
-    </None>
+    <ClCompile Include="src\Platforms\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>
