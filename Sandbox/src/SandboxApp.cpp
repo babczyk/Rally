@@ -12,7 +12,14 @@ public:
 	}
 	void OnEvent(Rally::Event& event) override
 	{
-		RL_TRACE("{0}", event.ToString());
+		if (event.GetEventType() == Rally::EventType::KeyPressed)
+		{
+			Rally::KeyPressedEvent& e = (Rally::KeyPressedEvent&)event;
+			if (e.GetKeyCode() == RL_KEY_ESCAPE)
+				RL_TRACE("Escape key pressed (code {0})", (char)e.GetKeyCode());
+			else
+				RL_TRACE("Key pressed (code {0})", (char)e.GetKeyCode());
+		}
 	}
 };
 class Sandbox : public Rally::Application

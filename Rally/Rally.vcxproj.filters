@@ -67,6 +67,9 @@
     <ClInclude Include="src\rlpch.h" />
     <ClInclude Include="src\Rally\Input.h" />
     <ClInclude Include="src\Platforms\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Rally\KeyCodes.h" />
+    <ClInclude Include="src\Rally\MouseButtonCodes.h" />
+    <ClInclude Include="src\Rally\ModsCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platforms\OpenGL\ImGuiOpenGLRenderer.cpp">

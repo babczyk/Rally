@@ -82,7 +82,7 @@ namespace Rally {
 				{
 					case GLFW_PRESS:
 					{
-						KeyPressedEvent event(key, 0);
+						KeyPressedEvent event(key, 0, mods);
 						data.EventCallback(event);
 						break;
 					}
@@ -94,7 +94,7 @@ namespace Rally {
 					}
 					case GLFW_REPEAT:
 					{
-						KeyPressedEvent event(key, true);
+						KeyPressedEvent event(key, true, mods);
 						data.EventCallback(event);
 						break;
 					}

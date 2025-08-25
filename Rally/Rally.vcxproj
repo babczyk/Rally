@@ -168,9 +168,12 @@
     <ClInclude Include="src\Rally\Events\MouseEvent.h" />
     <ClInclude Include="src\Rally\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Rally\Input.h" />
+    <ClInclude Include="src\Rally\KeyCodes.h" />
     <ClInclude Include="src\Rally\Layer.h" />
     <ClInclude Include="src\Rally\LayerStack.h" />
     <ClInclude Include="src\Rally\Log.h" />
+    <ClInclude Include="src\Rally\ModsCodes.h" />
+    <ClInclude Include="src\Rally\MouseButtonCodes.h" />
     <ClInclude Include="src\Rally\Window.h" />
     <ClInclude Include="src\rlpch.h" />
   </ItemGroup>
