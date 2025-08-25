@@ -9,6 +9,9 @@
 
 namespace Rally {
 
+#define BIND_EVENT_FN(x) std::bind(x, this, std::placeholders::_1)
+
+
 	class RALLY_API Application
 	{
 	public:

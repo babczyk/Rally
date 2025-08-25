@@ -9,7 +9,6 @@ public:
 	}
 	void OnUpdate() override
 	{
-		RL_INFO("ExampleLayer::Update");
 	}
 	void OnEvent(Rally::Event& event) override
 	{
