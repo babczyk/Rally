@@ -65,6 +65,8 @@
       <Filter>Rally</Filter>
     </ClInclude>
     <ClInclude Include="src\rlpch.h" />
+    <ClInclude Include="src\Rally\Input.h" />
+    <ClInclude Include="src\Platforms\Windows\WindowsInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platforms\OpenGL\ImGuiOpenGLRenderer.cpp">
@@ -89,5 +91,6 @@
       <Filter>Rally</Filter>
     </ClCompile>
     <ClCompile Include="src\rlpch.cpp" />
+    <ClCompile Include="src\Platforms\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>

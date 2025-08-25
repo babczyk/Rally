@@ -4,6 +4,8 @@
 #include "Rally/Events/ApplicationEvent.h"
 #include "Rally/Log.h"
 
+#include "Rally/Input.h"
+
 #include <glad/glad.h>
 
 namespace Rally 

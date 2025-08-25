@@ -106,11 +106,71 @@ namespace Rally {
 	bool ImGuiLayer::OnKeyPressedEvent(KeyPressedEvent& e)
 	{
 		ImGuiIO& io = ImGui::GetIO();
-		io.KeysDown[e.GetKeyCode()] = true;
-		io.KeyCtrl = io.KeysDown[GLFW_KEY_LEFT_CONTROL] || io.KeysDown[GLFW_KEY_RIGHT_CONTROL];
-		io.KeyShift = io.KeysDown[GLFW_KEY_LEFT_SHIFT] || io.KeysDown[GLFW_KEY_RIGHT_SHIFT];
-		io.KeyAlt = io.KeysDown[GLFW_KEY_LEFT_ALT] || io.KeysDown[GLFW_KEY_RIGHT_ALT];
-		io.KeySuper = io.KeysDown[GLFW_KEY_LEFT_SUPER] || io.KeysDown[GLFW_KEY_RIGHT_SUPER];
+
+		// Handle modifier keys with the modern AddKeyEvent approach
+		ImGuiKey keyCode = (ImGuiKey)e.GetKeyCode();
+
+		// Check if the pressed key is a modifier and send appropriate events
+		switch (keyCode)
+		{
+		case GLFW_KEY_LEFT_CONTROL:
+		case GLFW_KEY_RIGHT_CONTROL:
+			io.AddKeyEvent(ImGuiKey_ModCtrl, true);
+			break;
+		case GLFW_KEY_LEFT_SHIFT:
+		case GLFW_KEY_RIGHT_SHIFT:
+			io.AddKeyEvent(ImGuiKey_ModShift, true);
+			break;
+		case GLFW_KEY_LEFT_ALT:
+		case GLFW_KEY_RIGHT_ALT:
+			io.AddKeyEvent(ImGuiKey_ModAlt, true);
+			break;
+		case GLFW_KEY_LEFT_SUPER:
+		case GLFW_KEY_RIGHT_SUPER:
+			io.AddKeyEvent(ImGuiKey_ModSuper, true);
+			break;
+			// Arrow keys
+		case GLFW_KEY_UP:
+			io.AddKeyEvent(ImGuiKey_UpArrow, true);
+			break;
+		case GLFW_KEY_DOWN:
+			io.AddKeyEvent(ImGuiKey_DownArrow, true);
+			break;
+		case GLFW_KEY_LEFT:
+			io.AddKeyEvent(ImGuiKey_LeftArrow, true);
+			break;
+		case GLFW_KEY_RIGHT:
+			io.AddKeyEvent(ImGuiKey_RightArrow, true);
+			break;
+			// Common navigation keys
+		case GLFW_KEY_TAB:
+			io.AddKeyEvent(ImGuiKey_Tab, true);
+			break;
+		case GLFW_KEY_ENTER:
+			io.AddKeyEvent(ImGuiKey_Enter, true);
+			break;
+		case GLFW_KEY_ESCAPE:
+			io.AddKeyEvent(ImGuiKey_Escape, true);
+			break;
+		case GLFW_KEY_BACKSPACE:
+			io.AddKeyEvent(ImGuiKey_Backspace, true);
+			break;
+		case GLFW_KEY_DELETE:
+			io.AddKeyEvent(ImGuiKey_Delete, true);
+			break;
+		case GLFW_KEY_HOME:
+			io.AddKeyEvent(ImGuiKey_Home, true);
+			break;
+		case GLFW_KEY_END:
+			io.AddKeyEvent(ImGuiKey_End, true);
+			break;
+		case GLFW_KEY_PAGE_UP:
+			io.AddKeyEvent(ImGuiKey_PageUp, true);
+			break;
+		case GLFW_KEY_PAGE_DOWN:
+			io.AddKeyEvent(ImGuiKey_PageDown, true);
+			break;
+		}
 
 		return false;
 	}
@@ -118,7 +178,52 @@ namespace Rally {
 	bool ImGuiLayer::OnKeyReleasedEvent(KeyReleasedEvent& e)
 	{
 		ImGuiIO& io = ImGui::GetIO();
-		io.KeysDown[e.GetKeyCode()] = false;
+
+		ImGuiKey keyCode = (ImGuiKey)e.GetKeyCode();
+
+		// Handle modifier and navigation key releases
+		switch (keyCode)
+		{
+		case GLFW_KEY_LEFT_CONTROL:
+		case GLFW_KEY_RIGHT_CONTROL:
+			io.AddKeyEvent(ImGuiKey_ModCtrl, false);
+			break;
+		case GLFW_KEY_UP:
+			io.AddKeyEvent(ImGuiKey_UpArrow, false);
+			break;
+		case GLFW_KEY_DOWN:
+			io.AddKeyEvent(ImGuiKey_DownArrow, false);
+			break;
+		case GLFW_KEY_LEFT:
+			io.AddKeyEvent(ImGuiKey_LeftArrow, false);
+			break;
+		case GLFW_KEY_RIGHT:
+			io.AddKeyEvent(ImGuiKey_RightArrow, false);
+			break;
+		case GLFW_KEY_LEFT_SHIFT:
+			case GLFW_KEY_RIGHT_SHIFT:
+			io.AddKeyEvent(ImGuiKey_ModShift, false);
+			break;
+		case GLFW_KEY_LEFT_ALT:
+		case GLFW_KEY_RIGHT_ALT:
+			io.AddKeyEvent(ImGuiKey_ModAlt, false);
+			break;
+		case GLFW_KEY_LEFT_SUPER:
+			case GLFW_KEY_RIGHT_SUPER:
+			io.AddKeyEvent(ImGuiKey_ModSuper, false);
+			break;
+		case GLFW_KEY_TAB:
+			io.AddKeyEvent(ImGuiKey_Tab, false);
+			break;
+		case GLFW_KEY_BACKSPACE:
+			io.AddKeyEvent(ImGuiKey_Backspace, false);
+			break;
+		
+		default:
+			//io.AddKeyEvent(keyCode, false); // DONT WORK keyCode is an invalide ImGuiKey code
+			break;
+		}
+
 		return false;
 	}
 
