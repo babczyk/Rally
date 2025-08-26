@@ -6,11 +6,9 @@
 #include "LayerStack.h"
 
 #include "Window.h"
+#include "Rally/ImGui/ImGuiLayer.h"
 
 namespace Rally {
-
-#define BIND_EVENT_FN(x) std::bind(x, this, std::placeholders::_1)
-
 
 	class RALLY_API Application
 	{
@@ -33,9 +31,12 @@ namespace Rally {
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
+		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+	private:
 		static Application* s_Instance;
 
 	};

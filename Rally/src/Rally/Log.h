@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Core.h"
-#include "spdlog/spdlog.h"
-#include "spdlog/fmt/ostr.h"
+#include <spdlog/spdlog.h>
+#include <spdlog/fmt/ostr.h>
 
 namespace Rally {
 
@@ -18,6 +18,8 @@ namespace Rally {
 		static std::shared_ptr<spdlog::logger> s_ClientLogger;
 	};
 }
+
+
 
 //core log macros
 #define RL_CORE_TRACE(...)      ::Rally::Log::GetCoreLogger()->trace(__VA_ARGS__)

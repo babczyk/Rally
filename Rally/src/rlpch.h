@@ -7,8 +7,6 @@
 	#endif
 #endif
 
-#include "Rally/Log.h"
-
 #include <iostream>
 #include <memory>
 #include <utility>
@@ -21,6 +19,9 @@
 #include <vector>
 #include <unordered_map>
 #include <unordered_set>
+
+#include "Rally/Log.h"
+
 
 #ifdef RL_PLATFORM_WINDOWS
 	#include <Windows.h>

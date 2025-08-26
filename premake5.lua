@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Rally/vendor/GLFW/include"
 IncludeDir["Glad"] = "Rally/vendor/Glad/include"
 IncludeDir["ImGui"] = "Rally/vendor/imgui"
+IncludeDir["glm"] = "Rally/vendor/glm"
 
 include "Rally/vendor/GLFW"
 include "Rally/vendor/Glad"
@@ -22,9 +23,10 @@ include "Rally/vendor/imgui"
 
 project "Rally"
 	location "Rally"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
-	staticruntime "Off"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -37,7 +39,14 @@ project "Rally"
 	files 
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
+	}
+
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
 	}
 
 	includedirs
@@ -46,7 +55,8 @@ project "Rally"
 		"Rally/src",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -58,7 +68,6 @@ project "Rally"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
 		systemversion "latest"
 
 		defines
@@ -68,31 +77,27 @@ project "Rally"
 			"GLFW_INCLUDE_NONE"
 		}
 
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
-		}
-
 	filter "configurations:Debug"
 		defines "RL_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "RL_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "RL_DIST"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "Off"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -108,7 +113,10 @@ project "Sandbox"
 	includedirs
 	{
 		"Rally/vendor/spdlog/include",
-		"Rally/src"
+		"Rally/src",
+		"Rally/vendor",
+		"%{IncludeDir.glm}"
+
 	}
 
 	links
@@ -117,7 +125,6 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
 		systemversion "latest"
 
 		defines
@@ -128,14 +135,15 @@ project "Sandbox"
 	filter "configurations:Debug"
 		defines "RL_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "RL_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "RL_DIST"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
+
