@@ -146,6 +146,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platforms\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platforms\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platforms\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Rally.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="src\Rally\Log.h" />
     <ClInclude Include="src\Rally\ModsCodes.h" />
     <ClInclude Include="src\Rally\MouseButtonCodes.h" />
+    <ClInclude Include="src\Rally\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Rally\Window.h" />
     <ClInclude Include="src\rlpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -586,6 +588,7 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platforms\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platforms\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platforms\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Rally\Application.cpp" />

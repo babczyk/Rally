@@ -19,6 +19,8 @@ namespace Rally {
 	};
 }
 
+
+
 //core log macros
 #define RL_CORE_TRACE(...)      ::Rally::Log::GetCoreLogger()->trace(__VA_ARGS__)
 #define RL_CORE_INFO(...)       ::Rally::Log::GetCoreLogger()->info(__VA_ARGS__)
