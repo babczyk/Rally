@@ -6,6 +6,7 @@
 #include "LayerStack.h"
 
 #include "Window.h"
+#include "Rally/ImGui/ImGuiLayer.h"
 
 namespace Rally {
 
@@ -33,6 +34,7 @@ namespace Rally {
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 

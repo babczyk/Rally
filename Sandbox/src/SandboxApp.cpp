@@ -1,5 +1,7 @@
 #include <Rally.h>
 
+#include "ImGui/imgui.h"
+
 class ExampleLayer : public Rally::Layer
 {
 public:
@@ -7,9 +9,19 @@ public:
 		: Layer("Example")
 	{
 	}
+
 	void OnUpdate() override
 	{
 	}
+	
+	virtual void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello world");
+		ImGui::End();
+
+	}
+
 	void OnEvent(Rally::Event& event) override
 	{
 		if (event.GetEventType() == Rally::EventType::KeyPressed)
@@ -28,7 +40,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Rally::ImGuiLayer());
 	}
 
 	~Sandbox()

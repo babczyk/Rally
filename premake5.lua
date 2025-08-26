@@ -113,6 +113,7 @@ project "Sandbox"
 	{
 		"Rally/vendor/spdlog/include",
 		"Rally/src",
+		"Rally/vendor",
 		"%{IncludeDir.glm}"
 
 	}
