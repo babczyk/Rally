@@ -2,6 +2,8 @@
 
 #include "Rally/Core.h"
 
+#include <spdlog/fmt/ostr.h>
+
 #include <string>
 #include <functional>
 
@@ -87,3 +89,16 @@ namespace Rally {
 	}
 	
 }
+
+// Add this after your Event class definition
+template <>
+struct fmt::formatter<Rally::Event> {
+	constexpr auto parse(format_parse_context& ctx) -> decltype(ctx.begin()) {
+		return ctx.begin();
+	}
+
+	template <typename FormatContext>
+	auto format(const Rally::Event& event, FormatContext& ctx) const -> decltype(ctx.out()) {
+		return format_to(ctx.out(), "{}", event.ToString());
+	}
+};

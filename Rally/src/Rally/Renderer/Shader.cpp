@@ -2,6 +2,7 @@
 #include "Shader.h"
 
 #include <glad/glad.h>
+#include "Buffer.h"
 
 namespace Rally {
 

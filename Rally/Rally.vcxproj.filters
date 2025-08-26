@@ -1358,6 +1358,10 @@
     </ClInclude>
     <ClInclude Include="src\Rally\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Platforms\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Rally\Renderer\Shader.h" />
+    <ClInclude Include="src\Rally\Renderer\Buffer.h" />
+    <ClInclude Include="src\Platforms\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Rally\Renderer\Renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platforms\Windows\WindowsInput.cpp">
@@ -1388,5 +1392,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Platforms\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Rally\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Rally\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Platforms\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Rally\Renderer\Renderer.cpp" />
   </ItemGroup>
 </Project>

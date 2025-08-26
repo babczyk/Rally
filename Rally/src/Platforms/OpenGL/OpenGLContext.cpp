@@ -24,7 +24,7 @@ namespace Rally {
 
 		RL_CORE_INFO("OpenGL info:");
 		RL_CORE_INFO("  Vendor: {0}", reinterpret_cast<const char*>(glGetString(GL_VENDOR)));
-		RL_CORE_INFO("  Rendere: {0}", reinterpret_cast<const char*>(glGetString(GL_RENDER)));
+		RL_CORE_INFO("  Rendere: {0}", reinterpret_cast<const char*>(glGetString(GL_RENDERER)));
 		RL_CORE_INFO("  Version: {0}", reinterpret_cast<const char*>(glGetString(GL_VERSION)));
 
 	}

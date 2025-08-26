@@ -146,6 +146,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platforms\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platforms\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platforms\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platforms\Windows\WindowsWindow.h" />
@@ -165,7 +166,10 @@
     <ClInclude Include="src\Rally\Log.h" />
     <ClInclude Include="src\Rally\ModsCodes.h" />
     <ClInclude Include="src\Rally\MouseButtonCodes.h" />
+    <ClInclude Include="src\Rally\Renderer\Buffer.h" />
     <ClInclude Include="src\Rally\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Rally\Renderer\Renderer.h" />
+    <ClInclude Include="src\Rally\Renderer\Shader.h" />
     <ClInclude Include="src\Rally\Window.h" />
     <ClInclude Include="src\rlpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -588,6 +592,7 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platforms\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platforms\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platforms\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platforms\Windows\WindowsWindow.cpp" />
@@ -597,6 +602,9 @@
     <ClCompile Include="src\Rally\Layer.cpp" />
     <ClCompile Include="src\Rally\LayerStack.cpp" />
     <ClCompile Include="src\Rally\Log.cpp" />
+    <ClCompile Include="src\Rally\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Rally\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Rally\Renderer\Shader.cpp" />
     <ClCompile Include="src\rlpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
