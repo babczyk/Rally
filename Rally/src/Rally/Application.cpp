@@ -5,8 +5,7 @@
 #include "Rally/Log.h"
 
 #include "Rally/Input.h"
-
-#include <glad/glad.h>
+#include "Rally/Renderer/Renderer.h"
 
 namespace Rally 
 {
@@ -170,19 +169,19 @@ namespace Rally
 	{
 		while (m_Running)
 		{
-			glClearColor(0.1f, 0.1f, 0.1f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
-			
-			// square
+			RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
+			RenderCommand::Clear();
+
+			Renderer::BeginScene();
+
 			m_BlueShader->Bind();
-			m_SquareVA->Bind();
-			glDrawElements(GL_TRIANGLES, m_SquareVA->GetIndexBuffers()->GetCount(), GL_UNSIGNED_INT, nullptr);
+			Renderer::Submit(m_SquareVA);
 
-			// tringle
 			m_Shader->Bind();
-			m_VertexArray->Bind();
-			glDrawElements(GL_TRIANGLES, m_VertexArray->GetIndexBuffers()->GetCount(), GL_UNSIGNED_INT, nullptr);
+			Renderer::Submit(m_VertexArray);
 
+			Renderer::EndScene();
+			
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 

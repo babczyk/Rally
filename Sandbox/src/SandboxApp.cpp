@@ -25,7 +25,6 @@ public:
 
 	void OnEvent(Rally::Event& event) override
 	{
-		RL_INFO("{0}", event);
 		if (event.GetEventType() == Rally::EventType::KeyPressed)
 		{
 			Rally::KeyPressedEvent& e = (Rally::KeyPressedEvent&)event;
@@ -36,6 +35,7 @@ public:
 		}
 	}
 };
+
 class Sandbox : public Rally::Application
 {
 public:
