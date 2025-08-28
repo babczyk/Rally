@@ -20,5 +20,15 @@
 
 #include "Rally/ImGui/ImGuiLayer.h"
 
+// ---Renderer----------------------
+#include "Rally/Renderer/Renderer.h"
+#include "Rally/Renderer/RenderCommand.h"
+
+#include "Rally/Renderer/Buffer.h"
+#include "Rally/Renderer/Shader.h"
+#include "Rally/Renderer/VertexArray.h"
+
+#include "Rally/Renderer/OrthographicCamera.h"
+
 // ---Entry Point----------------------
 #include "Rally/EntryPoint.h"

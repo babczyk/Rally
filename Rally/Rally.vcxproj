@@ -170,6 +170,7 @@
     <ClInclude Include="src\Rally\MouseButtonCodes.h" />
     <ClInclude Include="src\Rally\Renderer\Buffer.h" />
     <ClInclude Include="src\Rally\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Rally\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Rally\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Rally\Renderer\Renderer.h" />
     <ClInclude Include="src\Rally\Renderer\RendererAPI.h" />
@@ -610,6 +611,7 @@
     <ClCompile Include="src\Rally\LayerStack.cpp" />
     <ClCompile Include="src\Rally\Log.cpp" />
     <ClCompile Include="src\Rally\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Rally\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Rally\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Rally\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Rally\Renderer\RendererAPI.cpp" />
